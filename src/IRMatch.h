@@ -2183,6 +2183,10 @@ struct Rewriter {
     halide_type_t output_type, wildcard_type;
     bool validate;
 
+#if HALIDE_DEBUG_MATCHED_RULES
+    bool d = true;
+#endif
+
     HALIDE_ALWAYS_INLINE
     Rewriter(Instance &&instance, halide_type_t ot, halide_type_t wt)
         : instance(std::forward<Instance>(instance)), output_type(ot), wildcard_type(wt) {
